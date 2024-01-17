@@ -1,0 +1,169 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>God's Cube</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      #cube-container {
+        width: 500px;
+        height: 500px;
+        background-color: lightblue; 
+      }
+      #info {
+        font-family: Arial, sans-serif;
+      }
+      #jackpot {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      .number {
+        font-size: 2em;
+        margin: 0 5px;
+        animation: spin 1s ease-in-out infinite;
+      }
+
+      @keyframes spin {
+        from {
+          transform: rotateX(0deg);
+        }
+        to {
+          transform: rotateX(360deg);
+        }
+      }
+
+      .bold {
+        font-weight: bold;
+      }
+      
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="bg-black text-white flex flex-col items-center justfiy-center"
+    style="border: 1px solid white"
+  >
+    <h1 class="text-2xl font-bold">The gods cube.</h1>
+    <div id="top">
+      <h3>Enter the holy number</h3>
+      <input
+        type="text"
+        placeholder="Enter a number"
+        class="text-black"
+        id="holyNumber"
+      />
+      <button class="border border-white p-2 m-2" id="jackPotButton">
+        Select Number
+      </button>
+    </div>
+    <div style="display: none" id="bottom">
+      <div class="flex justfiy-between">
+        <div class="flex flex-col">
+          <div class="text-black">
+            <label for="musicSelection" class="text-white">Select Music:</label>
+            <select id="musicSelection">
+              <option value="musics/stenley.mp3">stenley</option>
+              <option value="musics/last_summer.mp3">last summer</option>
+              <option value="musics/retro.mp3">retro</option>
+              <option value="musics/altai.mp3">altai</option>
+              <option value="musics/make.mp3">make ıt bun tem</option>
+              <option value="musics/gentelman.mp3">gentelman</option> 
+
+              
+            </select>
+          </div>
+          <div class="inline float-left mr-3" id="info"></div>
+        </div>
+
+        <div class="inline-block" id="cube-container"></div>
+      </div>
+      <div>
+        <label for="volumeSlider">Music Volume:</label>
+        <input
+          type="range"
+          id="volumeSlider"
+          min="0"
+          max="1"
+          step="0.01"
+          value="0.25"
+        />
+      </div>
+      <div>
+        <label for="speedSlider">Cube Speed:</label>
+        <input
+          type="range"
+          id="speedSlider"
+          min="0.005"
+          max="0.03"
+          step="0.001"
+          value="0.015"
+        />
+        <div>
+          <label for="widthSlider">Genişlik:</label>
+          <input type="range" id="widthSlider" min="0" max="40" value="8" />
+          <span id="widthValue">50</span>
+        </div>
+        <div>
+          <label for="heightSlider">Yükseklik:</label>
+          <input type="range" id="heightSlider" min="0" max="40" value="8" />
+          <span id="heightValue">50</span>
+        </div>
+        <div>
+          <label for="depthSlider">Derinlik:</label>
+          <input type="range" id="depthSlider" min="0" max="40" value="8" />
+          <span id="depthValue">50</span>
+        </div>
+      </div>
+      <div class="flex flex-col">
+        <button class="border border-white p-2 m-2" id="startButton">
+          Start
+        </button>
+        <button class="border border-white p-2 m-2" id="stopButton">
+          Stop
+        </button>
+        <div>
+          <button class="border border-white p-2 m-2" id="speedUpButton">
+            Speed Up
+          </button>
+          <button class="border border-white p-2 m-2" id="slowDownButton">
+            Slow Down
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="bg-black text-center py-2">
+      <a
+        class="underline text-white"
+        href="https://github.com/xfxpositions/divinecubne"
+        >source</a
+      >
+    </footer>
+
+    <audio id="backgroundMusic" loop>
+      <source src="bg.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <script src=" https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js "></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>
